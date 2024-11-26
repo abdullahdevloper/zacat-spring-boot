@@ -19,16 +19,15 @@ import org.springframework.web.bind.annotation.RestController;
 import com.CommunityCommittees.zakat.Entity.MembersData;
 import com.CommunityCommittees.zakat.Services.Interface.MembersDataService;
 
-import lombok.RequiredArgsConstructor;
 
-@RequestMapping( )
-@RequiredArgsConstructor
+@RequestMapping()
+// @RequiredArgsConstructor
+@CrossOrigin("http://localhost:3000")
 @Validated
 @RestController
-@CrossOrigin("http://localhost:3000")
 public class MembersDataController {
 
-	private MembersDataService membersDataService;
+	private final MembersDataService membersDataService;
 
     public MembersDataController(MembersDataService membersDataService) {
         this.membersDataService = membersDataService;
@@ -51,6 +50,7 @@ public class MembersDataController {
 	//  http://localhost:8080/api/membersData
 	@PostMapping("/membersData")
 	public ResponseEntity<MembersData> createMembersData(@RequestBody MembersData membersData) {
+		System.out.println("membersDatamembersData");
 		return membersDataService.createMembersData(membersData);
 	}
 

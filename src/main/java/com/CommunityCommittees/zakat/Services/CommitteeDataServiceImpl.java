@@ -22,6 +22,7 @@ public class CommitteeDataServiceImpl implements CommitteeDataService {
     private final CommitteeDataRepo committeeDataRepository;
 
     public ResponseEntity<List<CommitteeData>> getAllCommitteeData() {
+        System.out.println("getAllCommitteeData");
         try {
             List<CommitteeData> committeeData = new ArrayList<>();
 
@@ -49,6 +50,8 @@ public class CommitteeDataServiceImpl implements CommitteeDataService {
 
     public ResponseEntity<CommitteeData> createCommitteeData(CommitteeData committeeData) {
         try {
+        System.out.println("createCommitteeData");
+
             CommitteeData committeeDataObj = committeeDataRepository.save(committeeData);
             return new ResponseEntity<>(committeeDataObj, HttpStatus.CREATED);
         } catch (Exception e) {
