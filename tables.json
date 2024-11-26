@@ -1,0 +1,12 @@
+{
+    "table names":
+    [
+        "re_users",
+        "re_constants",
+        "cc_member_job",
+        "cc_members_data",
+        "cc_suspend_members",
+        "cc_committee_data",
+        "cc_committee_members"
+    ]
+}
