@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.CommunityCommittees.zakat.Entity.MembersData;
 import com.CommunityCommittees.zakat.Services.Interface.MembersDataService;
+import com.CommunityCommittees.zakat.dto.MembersDataDto;
 
 
 @RequestMapping()
@@ -49,7 +50,7 @@ public class MembersDataController {
 
 	//  http://localhost:8080/api/membersData
 	@PostMapping("/membersData")
-	public ResponseEntity<MembersData> createMembersData(@RequestBody MembersData membersData) {
+	public ResponseEntity<MembersDataDto> createMembersData(@RequestBody MembersDataDto membersData) {
 		System.out.println("membersDatamembersData");
 		return membersDataService.createMembersData(membersData);
 	}

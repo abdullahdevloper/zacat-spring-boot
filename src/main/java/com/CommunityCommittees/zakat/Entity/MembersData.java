@@ -4,6 +4,8 @@ import java.math.BigInteger;
 import java.sql.Date;
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -47,7 +49,7 @@ public class MembersData {
     private String experience;
     private String photo;
     private String person;
-    private Integer person_mobile;
+    private BigInteger person_mobile;
     private LocalDateTime add_date;
 
     @ManyToOne
@@ -62,8 +64,7 @@ public class MembersData {
 
     @ManyToOne
     @JoinColumn(name = "job_title")
-    private Constants job_title;
-    // private Integer job_title;
+    private MemberJob job_title;
 
     @ManyToOne
     @JoinColumn(name = "person_relation")
@@ -96,5 +97,6 @@ public class MembersData {
     // private Integer add_by;
 
     @OneToOne(mappedBy = "membersData", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore  // Add this to ignore the suspendMembers field during serialization
     private SuspendMembers suspendMembers;
 }

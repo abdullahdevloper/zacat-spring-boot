@@ -67,7 +67,7 @@ public class ConstantsServiceImpl implements ConstantsService {
             constanObj.setCommittee_type(constant.getCommittee_type());
             constanObj.setGender(constant.getGender());
             constanObj.setId_type(constant.getId_type());
-            constanObj.setJob_title(constant.getJob_title());
+            // constanObj.setJob_title(constant.getJob_title());
             constanObj.setName_constants(constant.getName_constants());
             constanObj.setPerson_relation(constant.getPerson_relation());
             constanObj.setPositionType(constant.getPositionType());

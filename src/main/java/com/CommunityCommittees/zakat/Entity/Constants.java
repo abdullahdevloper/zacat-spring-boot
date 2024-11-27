@@ -5,6 +5,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -43,36 +45,45 @@ public class Constants {
     private User user;
 
     @OneToMany(mappedBy = "id_type", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
+
     private List<MembersData> id_type ;
 
     @OneToMany(mappedBy = "gender", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<MembersData> gender ;
 
-    @OneToMany(mappedBy = "job_title", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<MembersData> job_title ;
-
+   
     @OneToMany(mappedBy = "person_relation", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<MembersData> person_relation ;
 
     @OneToMany(mappedBy = "qualification", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<MembersData> qualification ;
 
     @OneToMany(mappedBy = "sociality", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<MembersData> sociality ;
 
     @OneToMany(mappedBy = "accomm_type", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<MembersData> accomm_type ;
 
     
     @OneToMany(mappedBy = "work_type", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<MembersData> work_type ;
 
     
     @OneToMany(mappedBy = "committee_type_id", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
     private Set<CommitteeData> committee_type = new HashSet<>();
 
         
     @OneToMany(mappedBy = "positionType", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
+
     private Set<CommitteeMembers> positionType = new HashSet<>();
 
 }

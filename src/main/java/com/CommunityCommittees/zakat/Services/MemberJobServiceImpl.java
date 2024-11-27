@@ -23,6 +23,7 @@ public class MemberJobServiceImpl implements MemberJobService {
 
     public ResponseEntity<List<MemberJob>> getAllMemberJobs() {
         try {
+
             List<MemberJob> memberJob = new ArrayList<>();
 
             memberJobRepository.findAll().forEach(memberJob::add);
@@ -30,6 +31,8 @@ public class MemberJobServiceImpl implements MemberJobService {
             if (memberJob.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }
+            System.out.print("getAllMemberJobs");
+            System.out.print(memberJob);
 
             return new ResponseEntity<>(memberJob, HttpStatus.OK);
         } catch (Exception e) {
@@ -66,7 +69,7 @@ public class MemberJobServiceImpl implements MemberJobService {
             memberJobObj.setAdd_by(memberJob.getAdd_by());
             memberJobObj.setAdd_date(memberJob.getAdd_date());
             memberJobObj.setCommitteeMembers(memberJob.getCommitteeMembers());
-            memberJobObj.setJob_title(memberJob.getJob_title());
+            memberJobObj.setName_job(memberJob.getName_job());
             memberJobObj.setStatus(memberJob.getStatus());
             
 
